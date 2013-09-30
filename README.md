@@ -9,9 +9,11 @@ Unfortunately, in using a real `src` we open ourselves up to potential for an ex
 
 We know that including an `src` in current browsers means that `src` image is subject to prefetching, well prior to the application of any custom scripting.
 
-`<img src="fallbk-sm.jpg"
-      src2="(min-width: 400px) pic-md.jpg"
-			src1="(min-width: 1000px) pic-lg.jpg">`
+```
+<img src="fallbk-sm.jpg"
+     src2="(min-width: 400px) pic-md.jpg"
+     src1="(min-width: 1000px) pic-lg.jpg">
+```
 
 The above code leaves us in a position where 400px+ contexts that don’t have native support for this new pattern will prefetch the `src`, then replace it with the appropriate source by way of the polyfill. A non-JS or broken-JS environment will be provided with the fallback `src` alone which—as a representative not not ideally suited image—seems like a solid compromise from a progressive enhancement standpoint. 
 
@@ -23,9 +25,11 @@ Cons:
 
 To avoid the double-download, we could make use of something along these lines:
 
-`<img data-src="fallbk-sm.jpg"
-        src2="(min-width: 400px) pic-md.jpg"
-        src1="(min-width: 1000px) pic-lg.jpg">`
+```
+<img data-src="fallbk-sm.jpg"
+     src2="(min-width: 400px) pic-md.jpg"
+     src1="(min-width: 1000px) pic-lg.jpg">
+```
 
 The polyfill would swap the contents of the `data-src` into the `src` attribute. This would avoid the double-download—and the preparser altogether—but provide no image in non/broken JS environments. This also relies on an `img` with no actual `src`, which may result in a broken `img` rendered on the page, and potential for additional oddities—including a request (see: http://www.nczonline.net/blog/2010/07/13/empty-string-urls-browser-update ).
 
@@ -39,20 +43,22 @@ Cons:
 
 To work around the lack of an image in the above example, we could add something along these lines:
 
-`<img data-src="fallbk-sm.jpg"
-        src2="(min-width: 400px) pic-md.jpg"
-        src1="(min-width: 1000px) pic-lg.jpg">
-<noscript><img src="fallbk-sm.jpg"></noscript>`
+```
+<img data-src="fallbk-sm.jpg"
+     src2="(min-width: 400px) pic-md.jpg"
+     src1="(min-width: 1000px) pic-lg.jpg">
+<noscript><img src="fallbk-sm.jpg"></noscript>
+```
 
 As the DOM within a `noscript` is inert, the `src` of the fallback image won’t be prefetched. This accounts for JavaScript being wholesale disabled, but not for any issues that might prevent JavaScript from running as expected.
 
 Pros:
-• Avoids redundant request _in browsers that don’t make a request for empty/omitted `src`_
+* Avoids redundant request _in browsers that don’t make a request for empty/omitted `src`_
 
 Cons:
-• Relies on an `img` with no native `src` 
-• Forgoes prefetching
-• Still no image provided in broken-JS environments, which is far more common than “JS is disabled” environments.
+* Relies on an `img` with no native `src` 
+* Forgoes prefetching
+* Still no image provided in broken-JS environments, which is far more common than “JS is disabled” environments.
 
 I mostly wanted to hash out a few potential polyfill patterns for the sake of my own edification. While it isn’t technically a requirement that a proposed standard be easily polyfilled, that difficulty is likely to act as a huge barrier to adoption, and result in sites developed during the transition between the initial proposal and widespread adoption relying on hacks and “uncanny valley” versions of the proposed pattern.
 
