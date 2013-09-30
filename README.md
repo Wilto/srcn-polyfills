@@ -1,4 +1,4 @@
-`srcN` Polyfills
+`srcN` Polyfill Tests
 ==============
 
 I’m thinking through some of the ways we might be able to make use of this pattern without doing any damage in current browsers—avoiding a double download and eliminating as much potential as possible for a broken/hidden image.
@@ -60,10 +60,12 @@ Cons:
 * Forgoes prefetching
 * Still no image provided in broken-JS environments, which is far more common than “JS is disabled” environments.
 
-I mostly wanted to hash out a few potential polyfill patterns for the sake of my own edification. While it isn’t technically a requirement that a proposed standard be easily polyfilled, that difficulty is likely to act as a huge barrier to adoption, and result in sites developed during the transition between the initial proposal and widespread adoption relying on hacks and “uncanny valley” versions of the proposed pattern.
+None of the above patterns are particularly appealing, but this is just my first pass at thinking a polyfill through. Considering that we’re looking at a number of years before the native pattern is widely adopted, a polyfill that causes a redundant download or runs the risk of breaking content and could cause harm to users for some time.
 
-None of the above patterns are particularly appealing, but this is just my first pass at thinking a polyfill through. Considering that we’re looking at a number of years before the native pattern is widely adopted, a polyfill that causes a redundant download or runs the risk of breaking content could cause harm to users for some time.
+So,my aim is to hash out a few of these potential polyfill patterns somewhere public (y’know, *here*), test across a wide range of browsers in the Filament Group test lab, and publish the results.
 
-What concerns me is that the developer community has been waiting on a solution to this issue for a very long time now—any appealing standard is likely to see rapid adoption and polyfilling, as we’ve seen with the proposed `picture` element and Picturefill. While it’s easy to say that browsers will be quick to “catch up” and that polyfilling concerns are apt to be short-lived, any web developer can attest to the amount of time and effort we expend day-to-day for the sake of supporting widely-used legacy browsers.
+While it isn’t technically a requirement that a proposed standard be easily polyfilled, that difficulty is likely to act as a huge barrier to adoption, and result in sites developed during the transition between the initial proposal and widespread adoption relying on hacks and “uncanny valley” versions of the proposed pattern.
+
+What concerns me is that the developer community has been waiting on a solution to this issue for a very long time now—any appealing standard is likely to see rapid adoption and polyfilling, as we’ve seen with the proposed `picture` element and Picturefill. While it’s easy to say that browsers will be quick to “catch up” and that polyfilling concerns are apt to be short-lived, any web developer can attest to the amount of time and effort we expend day-to-day for the sake of supporting legacy browsers that still have a huge number of users.
 
 Any solution that causes extraneous requests or limits access to content during the years it may take to see widespread native support for this pattern could put a serious burden on users. While it may be easy enough for us to discount the cost of an extraneous request for the sake of a thought exercise: when used several times on a page and multiplied across an entire site—by tens of thousands of developers in their daily work—we’ve just put a tremendous burden on users in developing countries, on underpowered devices, or stuck using legacy browsers. These are the very places where wasted bandwidth stands to do the most damage.
