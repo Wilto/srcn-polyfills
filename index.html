@@ -20,7 +20,7 @@
 	<figure>
 		<h2>Test 1</h2>
 
-		<img src1="img/medium?src1.jpg">	
+		<img src1="img/medium.jpg">	
 		<figcaption>
 			<p>Is <code>src1</code> misinterpreted as an <code>src</code> anywhere?</p>
 		</figcaption>
@@ -39,6 +39,7 @@
 		<h2>Test 3</h2>
 
 		<img src>
+
 		<figcaption>
 			<p>Does an omitted <code>src</code> value fire a request?</p>
 		</figcaption>
@@ -83,7 +84,7 @@
 				<td class="bad">Request (icon)</td>
 				<td class="bad">Request (icon)</td>
 				<td class="good">No request</td>
-				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request.</td>
+				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request, for the page itself.</td>
 			</tr>
 			<tr>
 				<th scope="row">Android 2.3</th>
@@ -91,7 +92,7 @@
 				<td class="bad">Request (icon)</td>
 				<td class="bad">Request (icon)</td>
 				<td class="good">No request</td>
-				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request.</td>
+				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request, for the page itself.</td>
 			</tr>
 			<tr>
 				<th scope="row">Android 4.1 (Native)</th>
@@ -118,6 +119,17 @@
 				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request.</td>
 			</tr>
 			<tr>
+				<th scope="row">BB 4.6</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="bad">Request (icon)</td>
+				<td class="good">No request</td>
+				<td>
+					Multiple instances of request-triggering <code>img</code> result in a single ghost request for “src”. <code>img</code> elements appear to be rendered for all tests (pushing page content down with browser default <code>img</code> padding), but “broken” icon is only displayed for test 3.
+					<code>"GET /_RICG/srcn/src HTTP/1.1" 404 325</code>
+				</td>
+			</tr>
+			<tr>
 				<th scope="row">BB5</th>
 				<td class="good">No request</td>
 				<td class="good">No request</td>
@@ -128,24 +140,8 @@
 			<tr>
 				<th scope="row">BB6</th>
 				<td class="good">No request</td>
-				<td class="good">No request</td>
-				<td class="good">No request</td>
-				<td class="good">No request</td>
-				<td></td>
-			</tr>
-			<tr>
-				<th scope="row">BB5</th>
-				<td class="good">No request</td>
-				<td class="good">No request</td>
-				<td class="good">No request</td>
-				<td class="good">No request</td>
-				<td></td>
-			</tr>
-			<tr>
-				<th scope="row">BB5</th>
-				<td class="good">No request</td>
-				<td class="good">No request</td>
-				<td class="good">No request</td>
+				<td class="good">No request (icon)</td>
+				<td class="good">No request (icon)</td>
 				<td class="good">No request</td>
 				<td></td>
 			</tr>
