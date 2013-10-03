@@ -58,17 +58,6 @@
 		</figcaption>
 	</figure>
 
-		<figure>
-		<h2>Test 5</h2>
-
-		<img data-src="img/medium.jpg">	
-		<figcaption>
-			<p>Does <code>data-src</code> get misparsed as an <code>src</code>?</p>
-			<code>&lt;img&gt;</code>
-		</figcaption>
-	</figure>
-
-
 	<h2>Setup</h2>
 	<p>Performing this test by running <code>tail -f /var/log/apache2/access_log</code> on my local machine, and hitting it with various test devices here in the lab.</p>
 
@@ -86,7 +75,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<th scope="row">iOS7</th>
+				<th scope="row">Chrome (32,31,30,29,28)</th>
 				<td class="good">No request</td>
 				<td class="good">No request</td>
 				<td class="good">No request</td>
@@ -94,26 +83,90 @@
 				<td></td>
 			</tr>
 			<tr>
-				<th scope="row">Android 2.2</th>
+				<th scope="row">Firefox</th>
 				<td class="good">No request</td>
-				<td class="bad">Request (icon)</td>
-				<td class="bad">Request (icon)</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td>Known issue; fixed as of FF3.5</td>
+			</tr>
+			<tr>
+				<th scope="row">iOS7 Safari</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">Opera Mini (iOS)</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">Opera Mini 7.5 (Android)</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">Kindle Experimental Browser (Paperwhite)</th>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Single ghost request for the page.</td>
+			</tr>
+			<tr>
+				<th scope="row">Opera Mobile 16 (Android 4.2)</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">Android 2.1</th>
+				<td class="good">No request</td>
+				<td class="bad">Request<!--(icon)--></td>
+				<td class="bad">Request<!--(icon)--></td>
 				<td class="good">No request</td>
 				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request, for the page itself.</td>
 			</tr>
 			<tr>
-				<th scope="row">Android 2.3</th>
+				<th scope="row">Android 2.2 (Native, Dolphin)</th>
 				<td class="good">No request</td>
-				<td class="bad">Request (icon)</td>
-				<td class="bad">Request (icon)</td>
+				<td class="bad">Request<!--(icon)--></td>
+				<td class="bad">Request<!--(icon)--></td>
 				<td class="good">No request</td>
 				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request, for the page itself.</td>
+			</tr>
+			<tr>
+				<th scope="row">Android 2.3 (Native, Dolphin, Boat Browser, QQ Browser)</th>
+				<td class="good">No request</td>
+				<td class="bad">Request<!--(icon)--></td>
+				<td class="bad">Request<!--(icon)--></td>
+				<td class="good">No request</td>
+				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request, for the page itself.</td>
+			</tr>
+			<tr>
+				<th scope="row">Android 2.3 (Skyfire)</th>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Two ghost requests for the page.</td>
 			</tr>
 			<tr>
 				<th scope="row">Android 4.1 (Native)</th>
 				<td class="good">No request</td>
-				<td class="good">No request (icon)</td>
-				<td class="good">No request (icon)</td>
+				<td class="good">No request<!--(icon)--></td>
+				<td class="good">No request<!--(icon)--></td>
 				<td class="good">No request</td>
 				<td></td>
 			</tr>
@@ -126,18 +179,74 @@
 				<td>Unrelated: favicon and Apple touch icons are rerequested every time the URL is edited, one character at a time.</td>
 			</tr>
 			<tr>
-				<th scope="row">WP7</th>
-				<td class="good">No request (icon)</td>
-				<td class="good">No request (icon)</td>
-				<td class="good">No request (icon)</td>
-				<td class="good">No request (icon)</td>
+				<th scope="row">Android 4.1 (Firefox)</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
 				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">Android 4.1 (Dolphin)</th>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Two ghost requests for the page.</td>
+			</tr>
+			<tr>
+				<th scope="row">Android 4.2 (Firefox)</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">WP 7</th>
+				<td class="good">No request<!--(icon)--></td>
+				<td class="good">No request<!--(icon)--></td>
+				<td class="good">No request<!--(icon)--></td>
+				<td class="good">No request<!--(icon)--></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">WP 7.5</th>
+				<td class="good">No request<!--(icon)--></td>
+				<td class="good">No request<!--(icon)--></td>
+				<td class="good">No request<!--(icon)--></td>
+				<td class="good">No request<!--(icon)--></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">WP 8</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">Iceweasel 17.0.9</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td>Heh. “Iceweasel.”</td>
+			</tr>
+			<tr>
+				<th scope="row">Epiphany</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td>Ubuntu</td>
 			</tr>
 			<tr>
 				<th scope="row">BB 4.6</th>
 				<td class="good">No request</td>
 				<td class="good">No request</td>
-				<td class="bad">Request (icon)</td>
+				<td class="bad">Request<!--(icon)--></td>
 				<td class="good">No request</td>
 				<td>
 					Multiple instances of request-triggering <code>img</code> result in a single ghost request for “src”. <code>img</code> elements appear to be rendered for all tests (pushing page content down with browser default <code>img</code> padding), but “broken” icon is only displayed for test 3.
@@ -155,13 +264,69 @@
 			<tr>
 				<th scope="row">BB6</th>
 				<td class="good">No request</td>
-				<td class="good">No request (icon)</td>
-				<td class="good">No request (icon)</td>
+				<td class="good">No request<!--(icon)--></td>
+				<td class="good">No request<!--(icon)--></td>
 				<td class="good">No request</td>
 				<td></td>
 			</tr>
 			<tr>
 				<th scope="row">B2G 1.1.0.0 pre-release</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">FF17 (Android)</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">3DS Browser</th>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Single ghost request for the page.</td>
+			</tr>
+			<tr>
+				<th scope="row">IE6</th>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">IE7</th>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td>Needs verification</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">IE8</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">IE9</th>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td class="good">No request</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">IE10</th>
 				<td class="good">No request</td>
 				<td class="good">No request</td>
 				<td class="good">No request</td>
