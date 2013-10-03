@@ -58,6 +58,17 @@
 		</figcaption>
 	</figure>
 
+		<figure>
+		<h2>Test 5</h2>
+
+		<img data-src="img/medium.jpg">	
+		<figcaption>
+			<p>Does <code>data-src</code> get misparsed as an <code>src</code>?</p>
+			<code>&lt;img&gt;</code>
+		</figcaption>
+	</figure>
+
+
 	<h2>Setup</h2>
 	<p>Performing this test by running <code>tail -f /var/log/apache2/access_log</code> on my local machine, and hitting it with various test devices here in the lab.</p>
 
@@ -120,7 +131,7 @@
 				<td class="good">No request (icon)</td>
 				<td class="good">No request (icon)</td>
 				<td class="good">No request (icon)</td>
-				<td>Multiple instances of request-triggering <code>img</code> only result in a single ghost request.</td>
+				<td></td>
 			</tr>
 			<tr>
 				<th scope="row">BB 4.6</th>
